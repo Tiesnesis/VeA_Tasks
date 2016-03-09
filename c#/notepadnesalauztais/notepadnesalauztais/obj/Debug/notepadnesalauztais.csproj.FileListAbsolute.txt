@@ -1,0 +1,24 @@
+c:\users\roxoorz\documents\visual studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe.config
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.pdb
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csprojResolveAssemblyReference.cache
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ChildForm.resources
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ParentForm.resources
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.Properties.Resources.resources
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csproj.GenerateResource.Cache
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.exe
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.pdb
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.LogIn.resources
+C:\Users\Roxoorz\Documents\Visual Studio 2012\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.help.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe.config
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.exe
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.pdb
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ChildForm.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.help.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.LogIn.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ParentForm.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.Properties.Resources.resources
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe
+C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.pdb

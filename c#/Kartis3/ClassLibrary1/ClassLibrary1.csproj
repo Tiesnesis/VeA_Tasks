@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06631191-AC95-4C8C-B0DE-DD02C472C979}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassLibrary1</RootNamespace>
+    <AssemblyName>ClassLibrary1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atteli.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Atteli.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atteli.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Atteli.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aizmugure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Astoni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Cetri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Dama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Desmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Devini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Divi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Duzis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Kalps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Kungs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Pieci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Septini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Sesi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ercens Tris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Astoni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Cetri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Dama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Desmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Devini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Divi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Duzis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Kalps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Kungs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Pieci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Septini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Sesi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Karavs Tris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Astoni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Cetri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Dama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Desmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Devini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Divi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Duzis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Kalps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Kungs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Pieci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Septini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Sesi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kreicis Tris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Astoni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Cetri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Dama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Desmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Devini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Divi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Duzis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Kalps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Kungs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Pieci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Septini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Sesi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pikis Tris.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

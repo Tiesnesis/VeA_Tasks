@@ -1,0 +1,32 @@
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\bin\Debug\Kartis3.exe
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\bin\Debug\Kartis3.pdb
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Properties.Resources.resources
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\Kartis3.exe
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\Kartis3.pdb
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\bin\Debug\ClassLibrary1.dll
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\bin\Debug\ClassLibrary1.pdb
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form1.resources
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\bin\Debug\Kartis3.exe
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\bin\Debug\Kartis3.pdb
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.dll
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.pdb
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csprojResolveAssemblyReference.cache
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Properties.Resources.resources
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csproj.GenerateResource.Cache
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.exe
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.pdb
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form1.resources
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.exe
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.pdb
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form1.resources
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Properties.Resources.resources
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\Kartis3.exe
+C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\Kartis3.pdb
+C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.dll
+C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.pdb
+C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form2.resources

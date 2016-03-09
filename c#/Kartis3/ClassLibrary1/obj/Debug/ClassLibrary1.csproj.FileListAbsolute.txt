@@ -1,0 +1,14 @@
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\GenerateResource.read.1.tlog
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\GenerateResource.write.1.tlog
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+c:\documents and settings\localuser\my documents\visual studio 2010\Projects\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.Atteli.resources
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.Atteli.resources
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.GenerateResource.Cache
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+\\abava\s2_goldbe_u\PROFILE\Desktop\Kartis3\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

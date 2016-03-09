@@ -1,0 +1,18 @@
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.exe.config
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.exe
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.pdb
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.csprojResolveAssemblyReference.cache
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.MainForm.resources
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.Properties.Resources.resources
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.csproj.GenerateResource.Cache
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.exe
+c:\users\roxoorz\documents\visual studio 2012\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.pdb
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.exe.config
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.exe
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.pdb
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.exe
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\bin\Debug\Calcapplication.pdb
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.MainForm.resources
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.Properties.Resources.resources
+C:\Users\user\Desktop\Projects\Calcapplication\Calcapplication\obj\Debug\Calcapplication.csproj.GenerateResource.Cache

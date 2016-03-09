@@ -1,0 +1,18 @@
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\bin\Debug\LINQ.exe.config
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\bin\Debug\LINQ.exe
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\bin\Debug\LINQ.pdb
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.csprojResolveAssemblyReference.cache
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.Properties.Resources.resources
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.csproj.GenerateResource.Cache
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.exe
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.pdb
+c:\users\roxoorz\documents\visual studio 2012\Projects\LINQ\LINQ\obj\Debug\LINQ.Form1.resources
+C:\Users\user\Desktop\Projects\LINQ\LINQ\bin\Debug\LINQ.exe.config
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.exe
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.pdb
+C:\Users\user\Desktop\Projects\LINQ\LINQ\bin\Debug\LINQ.exe
+C:\Users\user\Desktop\Projects\LINQ\LINQ\bin\Debug\LINQ.pdb
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.Form1.resources
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.Properties.Resources.resources
+C:\Users\user\Desktop\Projects\LINQ\LINQ\obj\Debug\LINQ.csproj.GenerateResource.Cache
