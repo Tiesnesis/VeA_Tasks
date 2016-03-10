@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Numerics;
 
 
 namespace Calcapplication
@@ -16,12 +11,12 @@ namespace Calcapplication
     {
         private TextBox tb = null;
 
-        struct kompleksie
+        struct complex
         {
             public int real;
             public int imaginary;
 
-            public kompleksie(int real, int imaginary)
+            public complex(int real, int imaginary)
             {
                 this.real = real;
                 this.imaginary = imaginary;
@@ -32,27 +27,27 @@ namespace Calcapplication
                 return real + imaginary + "i";
             }
 
-            public static kompleksie operator +(kompleksie k1, kompleksie k2)
+            public static complex operator +(complex k1, complex k2)
             {
-                return new kompleksie(k1.real + k2.real, k1.imaginary + k2.imaginary);
+                return new complex(k1.real + k2.real, k1.imaginary + k2.imaginary);
             }
 
-            public static kompleksie operator /(kompleksie k1, kompleksie k2)
+            public static complex operator /(complex k1, complex k2)
             {
-                kompleksie temp;
+                complex temp;
                 temp.real = (k1.real * k2.real + k1.imaginary * k2.imaginary) / (k2.real * k2.real + k2.imaginary * k2.imaginary);
                 temp.imaginary = (k1.imaginary * k2.real - k1.real * k2.imaginary) / (k2.real * k2.real + k2.imaginary * k2.imaginary);
                 return temp;
             }
 
-            public static kompleksie operator -(kompleksie k1, kompleksie k2)
+            public static complex operator -(complex k1, complex k2)
             {
-                return new kompleksie(k1.real - k2.real, k1.imaginary - k2.imaginary);
+                return new complex(k1.real - k2.real, k1.imaginary - k2.imaginary);
             }
 
-            public static kompleksie operator *(kompleksie k1, kompleksie k2)
+            public static complex operator *(complex k1, complex k2)
             {
-                kompleksie temp;
+                complex temp;
                 temp.real = k1.real * k2.real - k1.imaginary * k2.imaginary;
                 temp.imaginary = k1.real * k2.imaginary + k1.imaginary * k2.real;
                 return temp;
@@ -68,7 +63,7 @@ namespace Calcapplication
             this.textBox4.GotFocus += new EventHandler(GetF);
             this.textBox5.GotFocus += new EventHandler(GetF);
         }
-    //visām pogām spiešanas
+    //Button Click listeners
         private void button1_Click(object sender, EventArgs e)
         {
             textBox1.Text += button1.Text;
@@ -247,53 +242,46 @@ namespace Calcapplication
         }
 
         private void button18_Click(object sender, EventArgs e)
-        //Otrais mēģinājums
         {
             if (izvele.SelectedIndex == 0)
             {
-                string[] skaitList;
+                string[] numberList;
                 List<char> zimlist = new List<char>();
                 List<char> tempzimlist = new List<char>();
-                //List<int> zimjuIndeksi = new List<int>();
                 int skaititajs = 0;
                 char[] dalitaji = { '+', '*', '/', '-' };
-                //char parbaude;
+                //char templates;
 
-                //izlasa zīmes no ievades un skaitļus
+                //Capture action chars from input
                 foreach (char zime in textBox1.Text)
                 {
                     if (zime == '*' || zime == '+' || zime == '-' || zime == '/')
                     {
                         zimlist.Add(zime);
-                        //zimjuIndeksi.Add(skaititajs);
                     }
                     skaititajs++;
                 }
 
                 skaititajs = 0;
 
-                //skaitļu ieguve masīvā
+                //Capture number list from input
 
-                skaitList = textBox1.Text.Split(dalitaji);
-                //rēķināšanas funkcija
+                numberList = textBox1.Text.Split(dalitaji);
+                //Calculation
                 double temp1;
                 double temp2;
-                bool izpilde = true;
-                //string[] iznemamaisSkaitlis;
-                //while (izpilde == true)
-                //{
+
                 for (int i = 0; i < zimlist.Count; i++)
                 {
                     if (zimlist[i] == '*')
                     {
-                        temp1 = Convert.ToDouble(skaitList[i]);
-                        temp2 = Convert.ToDouble(skaitList[i + 1]);
+                        temp1 = Convert.ToDouble(numberList[i]);
+                        temp2 = Convert.ToDouble(numberList[i + 1]);
                         temp1 = temp1 * temp2;
-                        skaitList[i] = temp1.ToString();
-                        //iznemamaisSkaitlis[0] = skaitList[i+1];
-                        skaitList[i + 1] = null;
-                        string[] tempSkait = skaitList.Where(s => !string.IsNullOrEmpty(s)).ToArray();
-                        skaitList = tempSkait;
+                        numberList[i] = temp1.ToString();
+                        numberList[i + 1] = null;
+                        string[] tempSkait = numberList.Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                        numberList = tempSkait;
                         for (int x = 0; x < zimlist.Count; x++)
                         {
                             if (x != i)
@@ -308,108 +296,52 @@ namespace Calcapplication
                         zimlist = tempzimlist;
                         i = 0;
                         textBox1.Text = tempSkait[0];
-                        /*for (int j = 0; j < skaitList.Length - 1; j++)
-                        {
-                            
-                            if (i == j)
-                            {
-                                tempSkait[j] = temp1.ToString();
-                            }
-                            else if (skaitList[j] == null)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                tempSkait[j] = skaitList[j];
-                            }
-                            MessageBox.Show(tempSkait[j]);
-                        }*/
                     }
                     else if (zimlist[i] == '/')
                     {
-                        temp1 = Convert.ToDouble(skaitList[i]);
-                        temp2 = Convert.ToDouble(skaitList[i + 1]);
+                        temp1 = Convert.ToDouble(numberList[i]);
+                        temp2 = Convert.ToDouble(numberList[i + 1]);
                         temp1 = temp1 / temp2;
-                        skaitList[i] = temp1.ToString();
-                        //iznemamaisSkaitlis[0] = skaitList[i+1];
-                        skaitList[i + 1] = null;
-                        string[] tempSkait = skaitList.Where(s => !string.IsNullOrEmpty(s)).ToArray();//nesanāk izņemt
-                        skaitList = tempSkait;
+                        numberList[i] = temp1.ToString();
+                        numberList[i + 1] = null;
+                        string[] tempSkait = numberList.Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                        numberList = tempSkait;
                         i = 0;
                         textBox1.Text = tempSkait[0];
                     }
                     else if (zimlist[i] == '+')
                     {
-                        temp1 = Convert.ToDouble(skaitList[i]);
-                        temp2 = Convert.ToDouble(skaitList[i + 1]);
+                        temp1 = Convert.ToDouble(numberList[i]);
+                        temp2 = Convert.ToDouble(numberList[i + 1]);
                         temp1 = temp1 + temp2;
-                        skaitList[i] = temp1.ToString();
-                        //iznemamaisSkaitlis[0] = skaitList[i+1];
-                        skaitList[i + 1] = null;
-                        string[] tempSkait = skaitList.Where(s => !string.IsNullOrEmpty(s)).ToArray();//nesanāk izņemt
-                        skaitList = tempSkait;
+                        numberList[i] = temp1.ToString();
+                        numberList[i + 1] = null;
+                        string[] tempSkait = numberList.Where(s => !string.IsNullOrEmpty(s)).ToArray();
+                        numberList = tempSkait;
                         i = 0;
                         textBox1.Text = tempSkait[0];
                     }
                     else if (zimlist[i] == '-')
                     {
-                        temp1 = Convert.ToDouble(skaitList[i]);
-                        temp2 = Convert.ToDouble(skaitList[i + 1]);
+                        temp1 = Convert.ToDouble(numberList[i]);
+                        temp2 = Convert.ToDouble(numberList[i + 1]);
                         temp1 = temp1 - temp2;
-                        skaitList[i] = temp1.ToString();
-                        //iznemamaisSkaitlis[0] = skaitList[i+1];
-                        skaitList[i + 1] = null;
-                        string[] tempSkait = skaitList.Where(s => !string.IsNullOrEmpty(s)).ToArray();//nesanāk izņemt
-                        skaitList = tempSkait;
+                        numberList[i] = temp1.ToString();
+                        numberList[i + 1] = null;
+                        string[] tempSkait = numberList.Where(s => !string.IsNullOrEmpty(s)).ToArray();
                         i = 0;
                         textBox1.Text = tempSkait[0];
                     }
-                    else
-                    {
-                        izpilde = false;
-                    }
                 }
-                //}
-
-
-
-                /*for (int i = 0; i < textBox1.Text.Length; i++)
-                {
-                    char[] skaitlis;
-                    parbaude = textBox1.Text[i];
-                    if (parbaude == '*' || parbaude == '+' || parbaude == '-' || parbaude == '/')
-                    {
-                        skaitList.Add(skaitlis);
-                        skaititajs = 0;
-                        continue;
-                    }
-                    else
-                    {
-                        skaitlis[skaititajs] = parbaude;
-                        skaititajs++;
-                    }
-                }*/
-
-                /*for (int i = 0; i < skaitList.Count(); i++)
-                {
-                    MessageBox.Show(skaitList[i]);
-                }*/
-
-                //Pārbaudes cikls, lai redzētu zīmju indeksus
-                /*foreach (int i in zimjuIndeksi)
-                {
-                    MessageBox.Show(i.ToString());
-                }*/
             }
             else if (izvele.SelectedIndex == 1)
             {
                 int temp = Convert.ToInt32(textBox2.Text);
                 int temp2 = Convert.ToInt32(textBox3.Text);
-                kompleksie c1 = new kompleksie(temp, temp2);
+                complex c1 = new complex(temp, temp2);
                 temp = Convert.ToInt32(textBox4.Text);
                 temp2 = Convert.ToInt32(textBox5.Text);
-                kompleksie c2 = new kompleksie(temp, temp2);
+                complex c2 = new complex(temp, temp2);
                 switch (textBox6.Text)
                 {
                     case("+"):
@@ -436,8 +368,8 @@ namespace Calcapplication
 
         private void button20_Click(object sender, EventArgs e)
         {
-            double sakne = Math.Sqrt(Convert.ToDouble(textBox1.Text));
-            textBox1.Text = sakne.ToString();
+            double sqrt = Math.Sqrt(Convert.ToDouble(textBox1.Text));
+            textBox1.Text = sqrt.ToString();
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -453,34 +385,7 @@ namespace Calcapplication
         private void button22_Click(object sender, EventArgs e)
         {
             if (tb != null) tb.SelectedText += "i";
-            /*if (textBox3.Focused)
-            {
-                textBox3.Text += "i";
-            }*/
-            /*int irI = 0;
-            for (int i = 0; i < textBox3.Text.Length; i++)
-            {
-                if (textBox3.Text[i].Equals("i"))
-                {
-                    irI = 1;
-                }
-            }
-            if (irI == 0)
-            {
-                textBox3.Text += "i";
-            }
-            irI = 0;
-            for (int i = 0; i < textBox5.Text.Length; i++)
-            {
-                if (textBox5.Text[i].Equals("i"))
-                {
-                    irI = 1;
-                }
-            }
-            if (irI == 0)
-            {
-                textBox5.Text += "i";
-            }*/
+         
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -492,60 +397,6 @@ namespace Calcapplication
         {
 
         }
-
-        
-
-        /*pirmais mēģinājums
-        {
-            bool cipars = false;
-            bool zime = false;
-            bool reizdal = false;
-            int indekss = 0;
-            int skaititajs = 0;
-            bool ciklabeigas = false;
-            double pirmais = 0;
-            double otrais = 0;
-            string pirmaisStr;
-            string otraisStr;
-
-            //kaut kāda pārbaude vai ir kaut cik adekvāta ievade
-            foreach (char x in textBox1.Text)
-            {
-                if (x == '1' || x == '2' || x == '3' || x == '4' || x == '5' || x == '6' || x == '7' || x == '8' || x == '9' || x == '0')
-                {
-                    cipars = true;
-                }
-                if (x == '*' || x == '+' || x == '-' || x == '/')
-                {
-                    zime = true;
-                }
-            }
-            if (cipars == true && zime == true)//ja virkne ir reizinašanas vai dališanas zīme
-            {
-                foreach (char x in textBox1.Text)
-                {
-                    if (x == '*' || x == '/')
-                    {
-                        reizdal = true;
-                        indekss = skaititajs;
-                        break;
-                    }
-                    skaititajs++;
-                }
-                if (reizdal == true)
-                {
-                    for (int i = skaititajs; ciklabeigas == true; i--)//mekle pa kreisi no zimes skaitli
-                    {
-                        if (textBox1.Text[i] == '+' || textBox1.Text[i] == '-' || textBox1.Text[i] == '*' || textBox1.Text[i] == '/' || textBox1.Text[i] == '0')
-                        {
-                          //  pirmais textBox1.Text[i];
-                        }
-                    }
-                }
-            }
-        }*/
-        
-
 
     }
 }

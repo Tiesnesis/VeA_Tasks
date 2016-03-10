@@ -30,3 +30,14 @@ C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\Kartis3.pdb
 C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.dll
 C:\Users\user\Desktop\Kartis3\Kartis3\bin\Debug\ClassLibrary1.pdb
 C:\Users\user\Desktop\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form2.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.exe
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\bin\Debug\Kartis3.exe
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\bin\Debug\Kartis3.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\bin\Debug\ClassLibrary1.dll
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\bin\Debug\ClassLibrary1.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form1.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Form2.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\Kartis3\Kartis3\obj\x86\Debug\Kartis3.csproj.GenerateResource.Cache

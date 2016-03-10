@@ -17,9 +17,9 @@ namespace notepadnesalauztais
         public LogIn(ParentForm izsaucejs)
         {
             InitializeComponent();
-            lietotajs pirmais = new lietotajs("user1@npad", "parole1");
-            lietotajs otrais = new lietotajs("user2@npad", "parole2");
-            lietotajs tresais = new lietotajs("user3@npad", "parole3");
+            lietotajs pirmais = new lietotajs("user1@mailinator", "pswd1");
+            lietotajs otrais = new lietotajs("user2@mailinator", "pswd2");
+            lietotajs tresais = new lietotajs("user3@mailinator", "pswd3");
             ldb.Add(pirmais);
             ldb.Add(otrais);
             ldb.Add(tresais);

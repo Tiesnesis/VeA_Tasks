@@ -22,3 +22,15 @@ C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug
 C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe
 C:\Users\user\Desktop\Projects\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe.config
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.exe
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.exe
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\bin\Debug\notepadnesalauztais.pdb
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ChildForm.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.help.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.LogIn.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.ParentForm.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\VeA_Tasks\c#\notepadnesalauztais\notepadnesalauztais\obj\Debug\notepadnesalauztais.csproj.GenerateResource.Cache
