@@ -16,12 +16,21 @@ namespace notepadnesalauztais
         public help()
         {
             InitializeComponent();
-            LinkLabel.Link adrese = new LinkLabel.Link();
-            adrese.LinkData = "http://www.1188.lv";
-            linkLabel1.Links.Add(adrese);
+            LinkLabel.Link contr = new LinkLabel.Link();
+            contr.LinkData = "https://notepad-plus-plus.org/contributors/";
+            linkLabel1.Links.Add(contr);
+
+            LinkLabel.Link hpage = new LinkLabel.Link();
+            hpage.LinkData = "https://notepad-plus-plus.org/";
+            linkLabel2.Links.Add(hpage);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(e.Link.LinkData as string);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(e.Link.LinkData as string);
         }

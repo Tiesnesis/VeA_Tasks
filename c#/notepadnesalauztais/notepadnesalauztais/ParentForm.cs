@@ -56,7 +56,6 @@ namespace notepadnesalauztais
             ChildForm newChild = new ChildForm();
             newChild.MdiParent = this;
             newChild.Show();
-            //this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,7 +63,6 @@ namespace notepadnesalauztais
             ChildForm newChild = new ChildForm();
             newChild.MdiParent = this;
             newChild.Show();
-            //this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         public void dissableControls()
@@ -91,7 +89,6 @@ namespace notepadnesalauztais
         {
             LogIn autorizacija = new LogIn(this);
             autorizacija.ShowDialog();
-            MessageBox.Show(LogIn.g.ToString());
             if (LogIn.g)
             {
                 enableControls();
@@ -132,7 +129,7 @@ namespace notepadnesalauztais
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             //Izveido Dialogresult objektu, kas sev satur atverto dialoga formu;
             DialogResult result = saveFileDialog1.ShowDialog();
-            //Izveidojam raksttaju
+            //Izveidojam rakstitaju
             StreamWriter sw = new StreamWriter(saveFileDialog1.FileName);
             //Nosakam, kura ir aktva bernu forma
             ChildForm tempChild = (ChildForm)this.ActiveMdiChild;
