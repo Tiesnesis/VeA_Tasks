@@ -248,6 +248,14 @@ namespace _2md {
         #line default
         #line hidden
         
+        
+        #line 50 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabControl tabControl1;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -280,6 +288,12 @@ namespace _2md {
             {
             case 1:
             this.tabControl = ((System.Windows.Controls.TabControl)(target));
+            
+            #line 10 "..\..\MainWindow.xaml"
+            this.tabControl.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.tabControl_SelectionChanged);
+            
+            #line default
+            #line hidden
             return;
             case 2:
             this.createTab = ((System.Windows.Controls.TabItem)(target));
@@ -403,6 +417,9 @@ namespace _2md {
             return;
             case 26:
             this.label1_Copy4 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 27:
+            this.tabControl1 = ((System.Windows.Controls.TabControl)(target));
             return;
             }
             this._contentLoaded = true;
