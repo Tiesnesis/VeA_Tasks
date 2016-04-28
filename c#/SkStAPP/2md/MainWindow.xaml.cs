@@ -3,18 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
+using System.Xml.Serialization;
 
 namespace _2md
 {
@@ -391,6 +382,34 @@ namespace _2md
             }
                 testList.Add(new studentTest(questionList,(bool) randomizeCheckBox.IsChecked, Int32.Parse(numberTextBox.Text), (System.DateTime)calendar.SelectedDate, testNameTextBox.Text));
             SerializeObject<List<studentTest>>(testList, fileLocation.Text + "\\tests.quest");
+        }
+        public void addElemensAllTestsListBox(List<studentTest> testTempList)
+        {
+            listBox.Items.Clear();
+            listBox.Items.Clear();
+            foreach (studentTest value in testTempList)
+            {
+                listBox.Items.Add(value.ToString());
+            }
+            listBox.SelectionMode = new SelectionMode();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Ookii.Dialogs.Wpf.VistaFolderBrowserDialog dlg = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+            dlg.Description = "Select test and question storage folder";
+            dlg.UseDescriptionForTitle = true;
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                textBox.Text = dlg.SelectedPath;
+                List<studentTest> tempList;
+                tempList = DeSerializeObject<studentTest>(textBox.Text + "\\tests.quest");
+                addElemensAllTestsListBox(tempList);
+            }
         }
     }
 }

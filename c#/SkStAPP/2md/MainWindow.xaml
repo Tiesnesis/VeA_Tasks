@@ -28,7 +28,7 @@
                     <Button x:Name="readButton" Content="Lasit" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="readButton_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Izveidot testu" x:Name="createTestTab" Height="18.96" VerticalAlignment="Top">
+            <TabItem Header="Izveidot testu" x:Name="createTestTab" Margin="-2,-1,-2,0">
                 <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="841.43">
                     <ListBox x:Name="allQuestions" HorizontalAlignment="Left" Margin="1.5,26.952,0,10" Width="294.334"/>
                     <Button x:Name="addButton" Content="-&gt;" HorizontalAlignment="Left" Margin="301.834,69.864,0,0" VerticalAlignment="Top" Width="41.987" Click="addButton_Click"/>
@@ -45,6 +45,16 @@
                     <ListBox x:Name="testQuestions" Margin="351.821,26.952,195.275,10"/>
                     <Label x:Name="label1_Copy3" Content="Visi jautajumi:" VerticalAlignment="Top" Height="26.952" Margin="1.5,0,0,0" HorizontalAlignment="Left" Width="137.087"/>
                     <Label x:Name="label1_Copy4" Content="Testa jautajumi:" VerticalAlignment="Top" Height="26.952" Margin="351.821,0,352.522,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pildit testu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="94" Margin="1,0,-26,0">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="344" Margin="10,21,0,0" VerticalAlignment="Top" Width="100"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="115,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="636" IsEnabled="False"/>
+                    <Button x:Name="button" Content="Lasit" HorizontalAlignment="Left" Margin="756,22,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+                    <GroupBox x:Name="groupBox" Header="Jautajums:" HorizontalAlignment="Left" Margin="115,47,0,0" VerticalAlignment="Top" Height="275" Width="716">
+                        <ProgressBar HorizontalAlignment="Left" Height="15" Margin="-5,270,-2,-28" VerticalAlignment="Top" Width="711"/>
+                    </GroupBox>
                 </Grid>
             </TabItem>
         </TabControl>

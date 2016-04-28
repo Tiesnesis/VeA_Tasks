@@ -54,5 +54,9 @@ namespace _2md
             accTestDate = tDate;
             accCategory = cat;
         }
+        public override string ToString()
+        {
+            return number + " " + category;
+        }
     }
 }
