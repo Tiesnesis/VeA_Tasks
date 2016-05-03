@@ -20,6 +20,8 @@ namespace QuizDownServer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Database db_connection;
+        List<Question> question_list;
         public MainWindow()
         {
             InitializeComponent();
