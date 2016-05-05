@@ -25,6 +25,20 @@ namespace QuizDownServer
         public MainWindow()
         {
             InitializeComponent();
+            db_connection = new  Database();
+            question_list = db_connection.Select();
+            foreach (Question i in question_list)
+            { listBox.Items.Add(i); }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Question temqQuestion = new Question(textBox.Text, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+            db_connection.Insert(temqQuestion);
+            question_list = db_connection.Select();
+            listBox.Items.Clear();
+            foreach (Question i in question_list)
+            { listBox.Items.Add(i); }
         }
     }
 }

@@ -78,9 +78,9 @@ namespace QuizDownServer
         }
 
         //Insert statement
-        public void Insert(string name, string correct, string wrong1, string wrong2, string wrong3)
+        public void Insert(Question tempQuestion)
         {
-            string query = "INSERT INTO questions (name, correct, wrong1, wrong2, wrong3) VALUES(" + name + "," + correct + "," + wrong1 + "," + wrong2 + "," + wrong3 + "," + ")";
+            string query = "INSERT INTO questions (name, correct, wrong_1, wrong_2, wrong_3) VALUES('" + tempQuestion.QuestionContent + "','" + tempQuestion.CorrectAnsw + "','" + tempQuestion.WrongAnsw1 + "','" + tempQuestion.WrongAnsw2 + "','" + tempQuestion.WrongAnsw3 + "')";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -121,7 +121,7 @@ namespace QuizDownServer
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(new Question(dataReader["name"], dataReader["correct"], dataReader["wrong1"], dataReader["wrong2"], dataReader["wrong3"]));
+                    list.Add(new Question(dataReader["name"] + "", dataReader["correct"] + "", dataReader["wrong_1"] + "", dataReader["wrong_2"] + "", dataReader["wrong_3"] + ""));
                 }
 
                 //close Data Reader
