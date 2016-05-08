@@ -5,29 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizDown"
         mc:Ignorable="d"
-        Title="Quiz Down" Height="363" Width="534">
-    <Grid Margin="0,0,98,0">
-        <Button x:Name="button" Content="" HorizontalAlignment="Left" Margin="25,127,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="button1" Content="" HorizontalAlignment="Left" Margin="180,127,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="button2" Content="" HorizontalAlignment="Left" Margin="180,182,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="button3" Content="" HorizontalAlignment="Left" Margin="25,182,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <ProgressBar HorizontalAlignment="Left" Height="22" Margin="60,237,0,0" VerticalAlignment="Top" Width="355"/>
-        <ProgressBar HorizontalAlignment="Left" Height="22" Margin="60,264,0,0" VerticalAlignment="Top" Width="355"/>
-        <Label x:Name="label" Content="You:" HorizontalAlignment="Left" Margin="25,235,0,0" VerticalAlignment="Top" Height="24" Width="30"/>
-        <Label x:Name="label1" Content="He:" HorizontalAlignment="Left" Margin="25,263,0,0" VerticalAlignment="Top"/>
-        <ProgressBar HorizontalAlignment="Left" Height="80" Margin="260,80,-67,0" VerticalAlignment="Top" Width="226" RenderTransformOrigin="0.5,0.5" ValueChanged="ProgressBar_ValueChanged">
-            <ProgressBar.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ProgressBar.RenderTransform>
-        </ProgressBar>
-        <Label x:Name="label2" Content="" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Height="112" Width="305"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="55,300,0,0" TextWrapping="Wrap" Text="LOCALHOST" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
-        <Button x:Name="button4" Content="Connect" HorizontalAlignment="Left" Margin="185,300,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
-
-    </Grid>
+        Title="Quiz Down" Height="380" Width="550">
+    <DockPanel Margin="3" LastChildFill="False">
+        <DockPanel Margin="3" DockPanel.Dock="Top" Height="293">
+            <DockPanel Margin="3" DockPanel.Dock="Top" Height="231">
+                <DockPanel Margin="3" DockPanel.Dock="Left">
+                    <TextBlock Margin="3" DockPanel.Dock="Top" Width="430" Height="130" Text="Question" x:FieldModifier="public" x:Name="questionBox"/>
+                    <Grid Margin="3" DockPanel.Dock="Bottom" Width="435" Height="80" x:FieldModifier="public" x:Name="answerButtons">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" Margin="3" Content="A) Answer" x:FieldModifier="public" x:Name="answer0" Click="AnswerQuestion"/>
+                        <Button Grid.Row="0" Grid.Column="1" Margin="3" Content="B) Answer" x:FieldModifier="public" x:Name="answer1" Click="AnswerQuestion" />
+                        <Button Grid.Row="1" Grid.Column="0" Margin="3" Content="C) Answer" x:FieldModifier="public" x:Name="answer2" Click="AnswerQuestion"/>
+                        <Button Grid.Row="1" Grid.Column="1" Margin="3" Content="D) Answer" x:FieldModifier="public" x:Name="answer3" Click="AnswerQuestion"/>
+                    </Grid>
+                </DockPanel>
+                <DockPanel Margin="3" DockPanel.Dock="Right" Width="54">
+                    <ProgressBar Orientation="Vertical" Width="20" Margin="3" x:Name="questionTimeBar"></ProgressBar>
+                    <ProgressBar Orientation="Vertical" Width="20" Margin="3"></ProgressBar>
+                </DockPanel>
+            </DockPanel>
+            <DockPanel Margin="3" DockPanel.Dock="Bottom">
+                <ProgressBar Height="20" Margin="3" DockPanel.Dock="Top"></ProgressBar>
+                <ProgressBar Height="20" Margin="3" DockPanel.Dock="Bottom"></ProgressBar>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel Margin="3" DockPanel.Dock="Bottom" Height="30" Width="Auto">
+            <TextBox Width="120" Height="25" Margin="3" DockPanel.Dock="Left" HorizontalAlignment="Left" Text="localhost"></TextBox>
+            <Button Width="120" Height="25" Margin="3" DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Connect"></Button>
+        </DockPanel>
+    </DockPanel>
 </Window>

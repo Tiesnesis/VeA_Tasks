@@ -23,6 +23,35 @@ namespace QuizDown
         public MainWindow()
         {
             InitializeComponent();
+            updateQuestion(Network.getDummyQuestion());
+            Round round = new Round(Network.getDummyQuestion()); // Move to Game
+            round.round(); // Move to game
+
+        }
+
+        public static void updateQuestion(Question question)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).questionBox.Text = question.question;
+           int idx = 0;
+           foreach(Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
+            {
+                button.Content = question.answers[idx]; 
+                idx++;
+            }
+        }
+
+        public static void updateTimeBar(double percent)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                ((MainWindow)System.Windows.Application.Current.MainWindow).questionTimeBar.Value = percent;
+            }));
+        }
+
+        private void AnswerQuestion(object sender, RoutedEventArgs e)
+        {
+           //Call answer method from current round object
         }
     }
+
 }
