@@ -15,6 +15,7 @@
         <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="10,150,0,0" TextWrapping="Wrap" Text="Wrong Answer" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="280" Margin="230,10,0,0" VerticalAlignment="Top" Width="277"/>
         <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Margin="432,295,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button2" Content="Start Game" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
 
     </Grid>
 </Window>
