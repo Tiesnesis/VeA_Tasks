@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizDown;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,26 +21,33 @@ namespace QuizDown
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Game game = new Game(Network.getQuestions());
         public MainWindow()
         {
             InitializeComponent();
-            updateQuestion(Network.getDummyQuestion());
-            Round round = new Round(Network.getDummyQuestion()); // Move to Game
-            round.round(); // Move to game
-
+            questionCountBar.Maximum = game.rounds.Count();
+            game.play();
         }
 
         public static void updateQuestion(Question question)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).questionBox.Text = question.question;
-           int idx = 0;
-           foreach(Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
+            ((MainWindow)Application.Current.MainWindow).questionBox.Text = question.QuestionContent;
+            ((MainWindow)Application.Current.MainWindow).questionCountBar.Value =   ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
+
+            List<string> answers = new List<string>() { question.CorrectAnsw, question.WrongAnsw1, question.WrongAnsw2, question.WrongAnsw3 };
+            Random rand = new Random();
+            answers = answers.OrderBy(c => rand.Next()).ToList();
+            updateAnswerButtons(answers);
+        }
+        public static void updateAnswerButtons(List<string> answers)
+        {
+            int idx = 0;
+            foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
             {
-                button.Content = question.answers[idx]; 
+                button.Content = answers[idx];
                 idx++;
             }
         }
-
         public static void updateTimeBar(double percent)
         {
             Application.Current.Dispatcher.Invoke(new Action(() =>
@@ -48,10 +56,45 @@ namespace QuizDown
             }));
         }
 
+        public void checkAnswer(string answer) //Also call this when time ends
+        {
+            if (game.rounds.First().currentQuestion.CorrectAnsw.Equals(answer))
+            {
+                Network.sendResult((int)game.timeElapsed);
+            }
+            else
+            {
+                Network.sendResult(0);
+            }
+
+            if (game.rounds.Count > 1)
+            {
+                game.rounds.RemoveAt(0);
+            } else
+            {
+                endGame();
+            }
+            updateUi();
+        }
+
+        private void endGame()
+        {
+            MessageBox.Show("Game ended");
+        }
+
+        private void updateUi()
+        {
+            //Wait from server to start next round
+            //Update both player scores
+            game.timeElapsed = 0;
+            updateQuestion(game.rounds.First().currentQuestion);
+        }
         private void AnswerQuestion(object sender, RoutedEventArgs e)
         {
-           //Call answer method from current round object
+            Button source = (Button)sender;
+            checkAnswer(source.Content.ToString());
         }
     }
+
 
 }

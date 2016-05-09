@@ -20,13 +20,13 @@ namespace QuizDown
             //Deserialize
             List<Question> questions = new List<Question>();
             questions.Add(getDummyQuestion());
+            questions.Add(getDummyQuestion2());
             return questions;
         }
 
-        public static void sendResult(Question question)
+        public static void sendResult(int result)
         {
-            //Serialize
-            //Send question with score to server
+               //Send score to server
         }
 
         public static int getOponentScore()
@@ -42,7 +42,17 @@ namespace QuizDown
             answers.Add("Answer2");
             answers.Add("Answer3");
             answers.Add("Answer4");
-            return new Question("This is a question with the correct answer: Answer1", answers, "Answer1");
+            return new Question("This is a question no. 1 with the correct answer: Answer1", "Answer1", "Answer2", "Answer3", "Answer4");
+        }
+
+        public static Question getDummyQuestion2()
+        {
+            List<string> answers = new List<string>(4);
+            answers.Add("Answer1");
+            answers.Add("Answer2");
+            answers.Add("Answer3");
+            answers.Add("Answer4");
+            return new Question("This is a question no. 2 with the correct answer: Answer1", "Answer1", "Answer2", "Answer3", "Answer4");
         }
 
         public static void sendQuestion(Question question)

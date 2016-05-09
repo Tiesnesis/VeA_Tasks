@@ -28,7 +28,7 @@
                 </DockPanel>
                 <DockPanel Margin="3" DockPanel.Dock="Right" Width="54">
                     <ProgressBar Orientation="Vertical" Width="20" Margin="3" x:Name="questionTimeBar"></ProgressBar>
-                    <ProgressBar Orientation="Vertical" Width="20" Margin="3"></ProgressBar>
+                    <ProgressBar Orientation="Vertical" Width="20" Margin="3" x:Name="questionCountBar"></ProgressBar>
                 </DockPanel>
             </DockPanel>
             <DockPanel Margin="3" DockPanel.Dock="Bottom">

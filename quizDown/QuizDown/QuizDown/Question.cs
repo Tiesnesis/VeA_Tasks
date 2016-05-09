@@ -8,33 +8,86 @@ namespace QuizDown
 {
     public class Question
     {
-        //TODO update this class to match server side question attributes
-        public String question;
-        public List<String> answers;
-        public String correctAnswer;
-        public double score;
-
-        public Question(String question, List<String> answers, String correctAnswer)
+        string questionContent, correctAnsw, wrongAnsw1, wrongAnsw2, wrongAnsw3;
+        public Question(string name, string correct, string wrong1, string wrong2, string wrong3)
         {
-            this.question = question;
-            this.answers = answers;
-            this.correctAnswer = correctAnswer;
+            questionContent = name;
+            correctAnsw = correct;
+            wrongAnsw1 = wrong1;
+            wrongAnsw2 = wrong2;
+            wrongAnsw3 = wrong3;
         }
 
-        public bool checkAnswer(String answer, int score)
+        public string CorrectAnsw
         {
-            if (answer.Equals(correctAnswer))
+            get
             {
-                this.score += score;
-                return true;
+                return correctAnsw;
             }
-            else
-                return false;
+
+            set
+            {
+                correctAnsw = value;
+            }
         }
 
-        public List<String> getAnswers()
+        public string QuestionContent
         {
-            return answers;
+            get
+            {
+                return questionContent;
+            }
+
+            set
+            {
+                questionContent = value;
+            }
+        }
+
+        public string WrongAnsw1
+        {
+            get
+            {
+                return wrongAnsw1;
+            }
+
+            set
+            {
+                wrongAnsw1 = value;
+            }
+        }
+
+        public string WrongAnsw2
+        {
+            get
+            {
+                return wrongAnsw2;
+            }
+
+            set
+            {
+                wrongAnsw2 = value;
+            }
+        }
+
+        public string WrongAnsw3
+        {
+            get
+            {
+                return wrongAnsw3;
+            }
+
+            set
+            {
+                wrongAnsw3 = value;
+            }
+        }
+
+        override
+        public string ToString()
+        {
+            return QuestionContent;
         }
     }
+
 }
