@@ -39,8 +39,9 @@
       <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Network">
-      <HintPath>..\..\..\..\..\..\Desktop\Network.dll</HintPath>
+    <Reference Include="Network, Version=1.0.2086.20070, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Network.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
