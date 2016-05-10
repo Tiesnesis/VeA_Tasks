@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Network;
 
 
 namespace QuizDownServer
 {
     class Player
     {
-        NetworkTcpServer.Connection connection;
+        Socket connection;
         public int score, opScore;
         public string status;
         public List<Question> question_list;
 
-        public Player(NetworkTcpServer.Connection getConnection, List<Question> q_list)
+        public Player(Socket getConnection, List<Question> q_list)
         {
             connection = getConnection;
             score = 0;
@@ -28,22 +25,32 @@ namespace QuizDownServer
         }
         public void sendQuestions(List<Question> question_list)
         {
-            connection.send(question_list);
+            var combined = string.Join(", ", question_list);
+            ASCIIEncoding asen = new ASCIIEncoding();
+            connection.Send(asen.GetBytes(combined));
         }
 
         public void receiveScore()
         {
-            score = int.Parse(connection.receive().ToString());
+            byte[] b = new byte[100];
+            int k = connection.Receive(b);
+            string receive_score = "";
+            for (int i = 0; i < k; i++)
+                receive_score = receive_score + Convert.ToChar(b[i]);
+            score = int.Parse(receive_score.ToString());
+            
         }
 
         public void sendOponentScore(int op_score)
         {
-            connection.send(op_score);
+            ASCIIEncoding asen = new ASCIIEncoding();
+            connection.Send(asen.GetBytes(op_score.ToString()));
         }
 
         public void sendCurrentQuestion(int active_question)
         {
-            connection.send(active_question);
+            ASCIIEncoding asen = new ASCIIEncoding();
+            connection.Send(asen.GetBytes(active_question.ToString()));
 
         }
 
@@ -108,7 +115,7 @@ namespace QuizDownServer
         }
         public void close()
         {
-            connection.closeConnection();
+            connection.Close();
         }
     }
 }

@@ -80,7 +80,7 @@
         override
         public string ToString()
         {
-            return QuestionContent;
+            return QuestionContent + "_" + correctAnsw + "_" + wrongAnsw1 + "_" + wrongAnsw2 + "_" + wrongAnsw2;
         }
     }
 }

@@ -1,14 +1,17 @@
-﻿using Network;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Network;
+using System.Net.Sockets;
+using System.Net;
 
 namespace QuizDownServer
 {
     class Game
     {
-        NetworkTcpServer tcpServer;
+
+        TcpListener myList;
 
         private List<Question> selectQuestions()
         {
@@ -18,7 +21,7 @@ namespace QuizDownServer
             List<Question> temp_list = temp_connection.Select();
             while( questions.Count <= 7)
             {
-                int index =  rnd.Next(0, temp_list.Count);
+                int index =  rnd.Next(0, temp_list.Count - 1 );
                 questions.Add(temp_list.ElementAt(index));
                 temp_list.RemoveAt(index);
             }
@@ -27,14 +30,20 @@ namespace QuizDownServer
 
         public void startServerConenction()
         {
-            tcpServer = new NetworkTcpServer("localhost", 4567);
+            IPAddress ipAd = IPAddress.Parse("127.0.0.1");
+            // use local m/c IP address, and 
+            // use the same in the client
+
+            /* Initializes the Listener */
+            myList = new TcpListener(ipAd, 8001);
+            myList.Start();
         }
 
         private void doGame()
         {
             List<Question> questions = selectQuestions();
-            Player player_1 = new Player(tcpServer.waitForNewConnection(), questions);
-            Player player_2 = new Player(tcpServer.waitForNewConnection(), questions);
+            Player player_1 = new Player(myList.AcceptSocket(), questions);
+            Player player_2 = new Player(myList.AcceptSocket(), questions);
 
             player_1.status = "sendQuestions";
             player_2.status = "sendQuestions";
@@ -68,12 +77,12 @@ namespace QuizDownServer
 
         public void playGame()
         {
-            while (true)
-            {
+           // while (true)
+            //{
                 ThreadStart game_ref = new ThreadStart(doGame);
                 Thread game_thread = new Thread(game_ref);
                 game_thread.Start();
-            }
+            //}
             
         }
 
