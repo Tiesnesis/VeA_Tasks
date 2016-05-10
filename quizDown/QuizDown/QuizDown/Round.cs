@@ -20,8 +20,8 @@ namespace QuizDown
         }
 
         public void startRound()
-        {  
-            MainWindow.updateQuestion(currentQuestion);
+        {
+
         }
 
     }

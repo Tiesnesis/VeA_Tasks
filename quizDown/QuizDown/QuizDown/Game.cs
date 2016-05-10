@@ -12,8 +12,8 @@ namespace QuizDown
     {
         List<Question> questions;
         public List<Round> rounds;
-        System.Timers.Timer timer;
-        double questionTime = 5;
+        public System.Timers.Timer timer;
+        public double questionTime = 5;
         public double timeElapsed = 0;
 
         public Game(List<Question> questions)
@@ -35,10 +35,9 @@ namespace QuizDown
         public void runTimer()
         {
             timer = new System.Timers.Timer();
-            timer.Start();
             timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             timer.Interval = 1000;
-            timer.Enabled = true;
+            timer.Enabled = false;
         }
 
         public void resetTimer()
@@ -50,11 +49,24 @@ namespace QuizDown
         {
             double percent = (questionTime - timeElapsed) / questionTime * 100.0;
             MainWindow.updateTimeBar(percent);
+            MainWindow.updateTimeLabel((int)questionTime - (int)timeElapsed);
             timeElapsed++;
             Console.WriteLine("" + timeElapsed);
             if (timeElapsed > questionTime)
             {
                 timeElapsed = 0;
+                timer.Stop();
+                
+                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        ((MainWindow)System.Windows.Application.Current.MainWindow).checkAnswer("");
+                        ((MainWindow)System.Windows.Application.Current.MainWindow).showCorrectAnswer(false);
+                        if (rounds.Count() > 0)
+                        {
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).nextRound();
+                        }
+                    }));
+                
             }
         }
 

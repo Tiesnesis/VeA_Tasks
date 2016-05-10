@@ -22,17 +22,23 @@ namespace QuizDown
     public partial class MainWindow : Window
     {
         public Game game = new Game(Network.getQuestions());
+        public bool gameOn = false;
         public MainWindow()
         {
             InitializeComponent();
-            questionCountBar.Maximum = game.rounds.Count();
             game.play();
+            questionCountBar.Maximum = game.rounds.Count();
+            myScoreBar.Maximum = game.rounds.Count() * game.questionTime;
+            oponentScoreBar.Maximum = game.rounds.Count() * game.questionTime;
+            nextRound();
+            gameOn = true;
         }
 
         public static void updateQuestion(Question question)
         {
             ((MainWindow)Application.Current.MainWindow).questionBox.Text = question.QuestionContent;
-            ((MainWindow)Application.Current.MainWindow).questionCountBar.Value =   ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
+            ((MainWindow)Application.Current.MainWindow).questionCountBar.Value = ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
+            ((MainWindow)Application.Current.MainWindow).questionLabel.Content = ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
 
             List<string> answers = new List<string>() { question.CorrectAnsw, question.WrongAnsw1, question.WrongAnsw2, question.WrongAnsw3 };
             Random rand = new Random();
@@ -44,6 +50,7 @@ namespace QuizDown
             int idx = 0;
             foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
             {
+                button.Background = Brushes.LightGray;
                 button.Content = answers[idx];
                 idx++;
             }
@@ -56,43 +63,105 @@ namespace QuizDown
             }));
         }
 
-        public void checkAnswer(string answer) //Also call this when time ends
+        public static void updateTimeLabel(int seconds)
         {
-            if (game.rounds.First().currentQuestion.CorrectAnsw.Equals(answer))
+            Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                Network.sendResult((int)game.timeElapsed);
+                ((MainWindow)System.Windows.Application.Current.MainWindow).timeLabel.Content = seconds.ToString();
+            }));
+        }
+
+        public void showCorrectAnswer(bool gotAnswer)
+        {
+            if (game.rounds.Count() > 0) {
+                foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
+                {
+                    if (button.Content.ToString() == game.rounds.First().currentQuestion.CorrectAnsw)
+                    {
+                        button.Background = Brushes.Green;
+                    }
+                    if (!gotAnswer)
+                    {
+                        if (button.Content.ToString() != game.rounds.First().currentQuestion.CorrectAnsw)
+                        {
+                            button.Background = Brushes.Red;
+                        }
+                    }
+                }
+            }
+        }
+
+        public bool checkAnswer(string answer)
+        {
+            bool correct = false;
+            Console.WriteLine("Correct: " + game.rounds.First().currentQuestion.CorrectAnsw + ", Given: " + answer);
+            if (game.rounds.First().currentQuestion.CorrectAnsw == answer)
+            {
+                Network.sendResult((int)game.questionTime - (int)game.timeElapsed);
+                correct = true;
             }
             else
             {
                 Network.sendResult(0);
             }
 
-            if (game.rounds.Count > 1)
+            if (game.rounds.Count > 0)
             {
                 game.rounds.RemoveAt(0);
-            } else
+            }
+
+            if (game.rounds.Count == 0)
             {
                 endGame();
             }
-            updateUi();
+
+            if (answer == "")
+            {
+
+            }
+            return correct;
         }
 
         private void endGame()
         {
+            myScoreBar.Value = Network.getMyScore();
+            oponentScoreBar.Value = Network.getOponentScore();
+            questionCountBar.Value = 0;
+            ((MainWindow)Application.Current.MainWindow).questionLabel.Content = 0.ToString();
+
+            game.timer.Stop();
+            game.timer.Close();
+            game.timer.Dispose();
+            gameOn = false;
             MessageBox.Show("Game ended");
         }
 
-        private void updateUi()
+        public void nextRound()
         {
-            //Wait from server to start next round
-            //Update both player scores
-            game.timeElapsed = 0;
+            MessageBox.Show("Next Round (OK simulates server response to start next round)"); // Wait server to start next round
+            myScoreBar.Value = Network.getMyScore();
+            oponentScoreBar.Value = Network.getOponentScore();
+            game.timer.Start();
+            game.resetTimer();
             updateQuestion(game.rounds.First().currentQuestion);
         }
         private void AnswerQuestion(object sender, RoutedEventArgs e)
         {
+            game.timer.Stop();
             Button source = (Button)sender;
-            checkAnswer(source.Content.ToString());
+            ((MainWindow)Application.Current.MainWindow).showCorrectAnswer(true);
+            Console.WriteLine(source.Content.ToString());
+            if (checkAnswer(source.Content.ToString()))
+            {
+                source.Background = Brushes.Green;
+            } else
+            {
+                source.Background = Brushes.Red;
+            }
+            if (gameOn)
+            {
+                nextRound();
+            }
         }
     }
 
