@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizDown"
         mc:Ignorable="d"
-        Title="Quiz Down" Height="380" Width="550">
+        Title="Quiz Down" Height="400" Width="600">
     <DockPanel Margin="3" LastChildFill="False">
-        <DockPanel Margin="3" DockPanel.Dock="Top" Height="293">
+        <DockPanel Margin="3" DockPanel.Dock="Top" Height="300">
             <DockPanel Margin="3" DockPanel.Dock="Top" Height="231">
                 <DockPanel Margin="3" DockPanel.Dock="Left">
                     <TextBlock Margin="3" DockPanel.Dock="Top" Width="430" Height="130" Text="Question" x:FieldModifier="public" x:Name="questionBox"/>
@@ -26,14 +26,28 @@
                         <Button Grid.Row="1" Grid.Column="1" Margin="3" Content="D) Answer" x:FieldModifier="public" x:Name="answer3" Click="AnswerQuestion"/>
                     </Grid>
                 </DockPanel>
-                <DockPanel Margin="3" DockPanel.Dock="Right" Width="54">
-                    <ProgressBar Orientation="Vertical" Width="20" Margin="3" x:Name="questionTimeBar"></ProgressBar>
-                    <ProgressBar Orientation="Vertical" Width="20" Margin="3" x:Name="questionCountBar"></ProgressBar>
+                <DockPanel Margin="3" DockPanel.Dock="Right">
+                    <DockPanel DockPanel.Dock="Left">
+                        <Label Content="Q:" DockPanel.Dock="Bottom" x:Name="questionLabel"></Label>
+                        <ProgressBar Orientation="Vertical" Width="50" Margin="3" x:Name="questionCountBar" DockPanel.Dock="Top"></ProgressBar>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Right">
+                        <Label Content="T:" DockPanel.Dock="Bottom" x:Name="timeLabel"></Label>
+                        <ProgressBar Orientation="Vertical" Width="50" Margin="3" x:Name="questionTimeBar" DockPanel.Dock="Top"></ProgressBar>
+                    </DockPanel>
+                    
+                    
                 </DockPanel>
             </DockPanel>
             <DockPanel Margin="3" DockPanel.Dock="Bottom">
-                <ProgressBar Height="20" Margin="3" DockPanel.Dock="Top"></ProgressBar>
-                <ProgressBar Height="20" Margin="3" DockPanel.Dock="Bottom"></ProgressBar>
+                <DockPanel DockPanel.Dock="Left" Width="100">
+                    <Label Content="Your score:" DockPanel.Dock="Top"></Label>
+                    <Label Content="Oponent score:" DockPanel.Dock="Bottom"></Label>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Right">
+                    <ProgressBar Height="20" Margin="3" x:Name="myScoreBar" DockPanel.Dock="Top"></ProgressBar>
+                    <ProgressBar Height="20" Margin="3" x:Name="oponentScoreBar" DockPanel.Dock="Bottom"></ProgressBar>
+                </DockPanel>
             </DockPanel>
         </DockPanel>
         <DockPanel Margin="3" DockPanel.Dock="Bottom" Height="30" Width="Auto">

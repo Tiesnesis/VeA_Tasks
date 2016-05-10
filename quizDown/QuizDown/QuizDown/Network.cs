@@ -9,6 +9,8 @@ namespace QuizDown
 {
     static class Network
     {
+        static int myScore = 0;
+        static int oponentScore = 0;
         public static void init(String server, String name)
         {
             //Connect to server
@@ -17,22 +19,30 @@ namespace QuizDown
         public static List<Question> getQuestions()
         {
             //Get questions from server
-            //Deserialize
             List<Question> questions = new List<Question>();
             questions.Add(getDummyQuestion());
+            questions.Add(getDummyQuestion2());
+            questions.Add(getDummyQuestion2());
+            questions.Add(getDummyQuestion2());
+            questions.Add(getDummyQuestion2());
             questions.Add(getDummyQuestion2());
             return questions;
         }
 
         public static void sendResult(int result)
         {
-               //Send score to server
+            myScore += result;
+            oponentScore += 3;
         }
 
         public static int getOponentScore()
         {
-            //Get oponent total from server
-            return 0;
+            return oponentScore;
+        }
+
+        public static int getMyScore()
+        {
+            return myScore;
         }
 
         public static Question getDummyQuestion()
