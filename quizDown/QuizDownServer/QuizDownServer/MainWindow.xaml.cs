@@ -23,6 +23,7 @@ namespace QuizDownServer
     {
         Database db_connection;
         List<Question> question_list;
+        Game main_game;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace QuizDownServer
             question_list = db_connection.Select();
             foreach (Question i in question_list)
             { listBox.Items.Add(i); }
+            main_game = new Game();
+            main_game.startServerConenction();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -44,7 +47,7 @@ namespace QuizDownServer
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            main_game.launchGamingThread();
         }
     }
 }
