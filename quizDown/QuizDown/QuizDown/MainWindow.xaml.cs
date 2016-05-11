@@ -21,11 +21,13 @@ namespace QuizDown
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Game game = new Game(Network.getQuestions());
+        public Game game;
         public bool gameOn = false;
         public MainWindow()
         {
             InitializeComponent();
+            Network.init("127.0.0.1", "Name");
+            game = new Game(Network.getQuestions());
             game.play();
             questionCountBar.Maximum = game.rounds.Count();
             myScoreBar.Maximum = game.rounds.Count() * game.questionTime;

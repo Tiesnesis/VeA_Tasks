@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,22 +13,40 @@ namespace QuizDown
     {
         static int myScore = 0;
         static int oponentScore = 0;
+        static TcpClient client;
+        static Stream stream;
+
+
         public static void init(String server, String name)
         {
             //Connect to server
+            Console.WriteLine("Will create object");
+                client = new TcpClient();
+            Console.WriteLine("Will connect");
+
+            client.Connect(server, 8001);
+            Console.WriteLine("Will get stream");
+
+            stream = client.GetStream();
+
             //Send my name
         }
         public static List<Question> getQuestions()
         {
             //Get questions from server
-            List<Question> questions = new List<Question>();
-            questions.Add(getDummyQuestion());
-            questions.Add(getDummyQuestion2());
-            questions.Add(getDummyQuestion2());
-            questions.Add(getDummyQuestion2());
-            questions.Add(getDummyQuestion2());
-            questions.Add(getDummyQuestion2());
-            return questions;
+            Console.WriteLine("Will read stream");
+            byte[] bb = new byte[100]; // Increas buffer size
+            Console.WriteLine("Created byte buffer"); 
+
+            int k = stream.Read(bb, 0, 100);
+            Console.WriteLine("Got something from stream that is : ");
+
+            for (int i = 0; i < k; i++)
+            {
+                Console.WriteLine(""+Convert.ToChar(bb[i])); //Decode questions and add to list
+            }
+
+            return null; //Return list
         }
 
         public static void sendResult(int result)
