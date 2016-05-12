@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,9 @@ namespace QuizDown
     {
         public Game game;
         public bool gameOn = false;
+        public int questionId = 1;
+        public int score;
+        public bool correct;
         public MainWindow()
         {
             InitializeComponent();
@@ -76,7 +80,7 @@ namespace QuizDown
         public void showCorrectAnswer(bool gotAnswer)
         {
             if (game.rounds.Count() > 0) {
-                foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
+                foreach (Button button in ((MainWindow)Application.Current.MainWindow).answerButtons.Children)
                 {
                     if (button.Content.ToString() == game.rounds.First().currentQuestion.CorrectAnsw)
                     {
@@ -93,19 +97,25 @@ namespace QuizDown
             }
         }
 
-        public bool checkAnswer(string answer)
+        public void checkAnswer(string answer)
         {
-            bool correct = false;
-            Console.WriteLine("Correct: " + game.rounds.First().currentQuestion.CorrectAnsw + ", Given: " + answer);
+            correct = false;
             if (game.rounds.First().currentQuestion.CorrectAnsw == answer)
             {
-                Network.sendResult((int)game.questionTime - (int)game.timeElapsed);
+                ;
+                Thread send = new Thread(() => Network.sendResult((int)game.questionTime - (int)game.timeElapsed));
+                send.Start();
                 correct = true;
             }
             else
             {
-                Network.sendResult(0);
+                Thread send = new Thread(() => Network.sendResult(0));
+                send.Start();
+                
             }
+
+            Thread receive = new Thread(() => Network.getOponentScore());
+            receive.Start();
 
             if (game.rounds.Count > 0)
             {
@@ -117,20 +127,14 @@ namespace QuizDown
                 endGame();
             }
 
-            if (answer == "")
-            {
-
-            }
-            return correct;
         }
 
         private void endGame()
         {
             myScoreBar.Value = Network.getMyScore();
-            oponentScoreBar.Value = Network.getOponentScore();
+            //oponentScoreBar.Value = Network.getOponentScore();
             questionCountBar.Value = 0;
             ((MainWindow)Application.Current.MainWindow).questionLabel.Content = 0.ToString();
-
             game.timer.Stop();
             game.timer.Close();
             game.timer.Dispose();
@@ -140,9 +144,8 @@ namespace QuizDown
 
         public void nextRound()
         {
-            MessageBox.Show("Next Round (OK simulates server response to start next round)"); // Wait server to start next round
+            questionId = Network.startNextQuestion();
             myScoreBar.Value = Network.getMyScore();
-            oponentScoreBar.Value = Network.getOponentScore();
             game.timer.Start();
             game.resetTimer();
             updateQuestion(game.rounds.First().currentQuestion);
@@ -153,13 +156,12 @@ namespace QuizDown
             Button source = (Button)sender;
             ((MainWindow)Application.Current.MainWindow).showCorrectAnswer(true);
             Console.WriteLine(source.Content.ToString());
-            if (checkAnswer(source.Content.ToString()))
-            {
-                source.Background = Brushes.Green;
-            } else
+            checkAnswer(source.Content.ToString());
+            if (!correct)
             {
                 source.Background = Brushes.Red;
             }
+
             if (gameOn)
             {
                 nextRound();

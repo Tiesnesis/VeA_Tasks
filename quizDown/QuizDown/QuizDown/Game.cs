@@ -13,7 +13,7 @@ namespace QuizDown
         List<Question> questions;
         public List<Round> rounds;
         public System.Timers.Timer timer;
-        public double questionTime = 5;
+        public double questionTime = 20;
         public double timeElapsed = 0;
 
         public Game(List<Question> questions)
