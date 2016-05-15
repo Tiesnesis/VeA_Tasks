@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -15,6 +16,10 @@ namespace QuizDown
         public static int oponentScore = 0;
         static TcpClient client;
         static Stream stream;
+        public static int currentQuestion = 0;
+
+       
+
 
 
         public static void init(String server, String name)
@@ -55,14 +60,17 @@ namespace QuizDown
 
         public static void sendResult(int result)
         {
+            Console.WriteLine("Will send" + result);
             myScore += result;
             ASCIIEncoding asen = new ASCIIEncoding();
             byte[] byteBuffer = asen.GetBytes(result.ToString());
             stream.Write(byteBuffer,0,byteBuffer.Length);
+            Console.WriteLine("Sent" + result);
         }
 
         public static void getOponentScore()
         {
+            Console.WriteLine("Will get score of oponnent");
             int bufferSize = 16;
             byte[] byteBuffer = new byte[bufferSize];
             int k = stream.Read(byteBuffer, 0, bufferSize);
@@ -72,10 +80,19 @@ namespace QuizDown
                 opScore += Convert.ToChar(byteBuffer[i]);
             }
             oponentScore += int.Parse(opScore);
+            System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                ((MainWindow)System.Windows.Application.Current.MainWindow).oponentScoreBar.Value = oponentScore;
+                ((MainWindow)System.Windows.Application.Current.MainWindow).myScoreBar.Value = myScore;
+            }));
+            Console.WriteLine("GotScore" + opScore);
+
         }
 
-        public static int startNextQuestion()
+        public static void startNextQuestion()
         {
+            Console.WriteLine("Will get next round");
+
             int bufferSize = 16;
             byte[] byteBuffer = new byte[bufferSize];
             int k = stream.Read(byteBuffer, 0, bufferSize);
@@ -84,7 +101,9 @@ namespace QuizDown
             {
                 questionId += Convert.ToChar(byteBuffer[i]);
             }
-            return int.Parse(questionId);
+            currentQuestion = int.Parse(questionId);
+            Console.WriteLine("Got next round" + questionId);
+
         }
 
         public static int getMyScore()

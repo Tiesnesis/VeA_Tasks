@@ -24,7 +24,7 @@ namespace QuizDown
     {
         public Game game;
         public bool gameOn = false;
-        public int questionId = 1;
+        public int questionId = 0;
         public int score;
         public bool correct;
         public MainWindow()
@@ -40,12 +40,11 @@ namespace QuizDown
             gameOn = true;
         }
 
-        public static void updateQuestion(Question question)
+        public void updateQuestion(Question question)
         {
             ((MainWindow)Application.Current.MainWindow).questionBox.Text = question.QuestionContent;
             ((MainWindow)Application.Current.MainWindow).questionCountBar.Value = ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
             ((MainWindow)Application.Current.MainWindow).questionLabel.Content = ((MainWindow)Application.Current.MainWindow).game.rounds.Count();
-
             List<string> answers = new List<string>() { question.CorrectAnsw, question.WrongAnsw1, question.WrongAnsw2, question.WrongAnsw3 };
             Random rand = new Random();
             answers = answers.OrderBy(c => rand.Next()).ToList();
@@ -56,6 +55,7 @@ namespace QuizDown
             int idx = 0;
             foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
             {
+                button.IsEnabled = true;
                 button.Background = Brushes.LightGray;
                 button.Content = answers[idx];
                 idx++;
@@ -102,20 +102,16 @@ namespace QuizDown
             correct = false;
             if (game.rounds.First().currentQuestion.CorrectAnsw == answer)
             {
-                ;
-                Thread send = new Thread(() => Network.sendResult((int)game.questionTime - (int)game.timeElapsed));
-                send.Start();
+                Player.status = "sendMyScore";
+                Player.score = (int)(game.questionTime - game.timeElapsed);
                 correct = true;
             }
             else
             {
-                Thread send = new Thread(() => Network.sendResult(0));
-                send.Start();
-                
+                Player.score = 0;
+                Player.status = "sendMyScore";
             }
 
-            Thread receive = new Thread(() => Network.getOponentScore());
-            receive.Start();
 
             if (game.rounds.Count > 0)
             {
@@ -126,13 +122,12 @@ namespace QuizDown
             {
                 endGame();
             }
+            disableButtons();
 
         }
 
         private void endGame()
         {
-            myScoreBar.Value = Network.getMyScore();
-            //oponentScoreBar.Value = Network.getOponentScore();
             questionCountBar.Value = 0;
             ((MainWindow)Application.Current.MainWindow).questionLabel.Content = 0.ToString();
             game.timer.Stop();
@@ -144,16 +139,14 @@ namespace QuizDown
 
         public void nextRound()
         {
-            questionId = Network.startNextQuestion();
+            Player.status = "waitForNextRound";
             myScoreBar.Value = Network.getMyScore();
-            game.timer.Start();
-            game.resetTimer();
-            updateQuestion(game.rounds.First().currentQuestion);
         }
         private void AnswerQuestion(object sender, RoutedEventArgs e)
         {
             game.timer.Stop();
             Button source = (Button)sender;
+            disableButtons();
             ((MainWindow)Application.Current.MainWindow).showCorrectAnswer(true);
             Console.WriteLine(source.Content.ToString());
             checkAnswer(source.Content.ToString());
@@ -166,7 +159,22 @@ namespace QuizDown
             {
                 nextRound();
             }
+
         }
+
+        private void disableButtons()
+        {
+            foreach (Button button in ((MainWindow)System.Windows.Application.Current.MainWindow).answerButtons.Children)
+            {
+                //button.IsEnabled = false;
+            }
+        }
+
+        
+
+        
+
+
     }
 
 

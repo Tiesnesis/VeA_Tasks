@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuizDown
 {
-    class Player
+    public static class Player
     {
-        String name;
-        int totalScore;
+        public static string status = "wait";
+        public static int score = 0;
     }
 }

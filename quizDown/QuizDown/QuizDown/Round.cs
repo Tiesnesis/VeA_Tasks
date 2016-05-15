@@ -19,7 +19,7 @@ namespace QuizDown
             currentQuestion = question;
         }
 
-        public void startRound()
+        public void doRound()
         {
 
         }

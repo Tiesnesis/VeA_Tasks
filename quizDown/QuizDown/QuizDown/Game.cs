@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows;
 
 namespace QuizDown
 {
     public class Game
     {
         List<Question> questions;
+        bool gameOn = false;
         public List<Round> rounds;
         public System.Timers.Timer timer;
         public double questionTime = 20;
         public double timeElapsed = 0;
+        
 
         public Game(List<Question> questions)
         {
@@ -30,7 +33,10 @@ namespace QuizDown
                 Round round = new Round(question);
                 rounds.Add(round);
             }
-            rounds.First().startRound();
+            gameOn = true;
+            Thread thread = new Thread(new ThreadStart(game));
+            thread.Start();
+
         }
         public void runTimer()
         {
@@ -70,6 +76,42 @@ namespace QuizDown
             }
         }
 
+        public void game()
+        {
+            while (gameOn)
+            {
+                switch (Player.status)
+                {
+                    case "waitForNextRound":
+                        Network.startNextQuestion();
+                        if( Network.currentQuestion != 1)
+                        {
+                            Thread.Sleep(5000);
+                        }
+
+                        System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).updateQuestion(rounds.First().currentQuestion);
+                        }));
+                        timer.Start();
+                        resetTimer();
+                        Player.status = "wait";
+                        break;
+                    case "sendMyScore":
+                        Network.sendResult(Player.score);
+                        Player.status = "receiveOponentScore";
+                        break;
+                    case "receiveOponentScore":
+                        Network.getOponentScore();
+
+                        Player.status = "waitForNextRound";
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+        }
 
     }
 }
