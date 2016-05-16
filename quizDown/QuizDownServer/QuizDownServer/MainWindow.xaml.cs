@@ -21,16 +21,16 @@ namespace QuizDownServer
     /// </summary>
     public partial class MainWindow : Window
     {
-        Database db_connection;
+        //Database db_connection;
         List<Question> question_list;
         Game main_game;
         public MainWindow()
         {
             InitializeComponent();
-            db_connection = new  Database();
-            question_list = db_connection.Select();
-            foreach (Question i in question_list)
-            { listBox.Items.Add(i); }
+            //db_connection = new  Database();
+            //question_list = db_connection.Select();
+            //foreach (Question i in question_list)
+            //{ listBox.Items.Add(i); }
             main_game = new Game();
             main_game.startServerConenction();
         }
@@ -38,8 +38,8 @@ namespace QuizDownServer
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Question temqQuestion = new Question(textBox.Text, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
-            db_connection.Insert(temqQuestion);
-            question_list = db_connection.Select();
+            //db_connection.Insert(temqQuestion);
+            //question_list = db_connection.Select();
             listBox.Items.Clear();
             foreach (Question i in question_list)
             { listBox.Items.Add(i); }

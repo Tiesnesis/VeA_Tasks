@@ -21,7 +21,6 @@ namespace QuizDownServer
             opScore = 0;
             question_list = q_list;
 
-
         }
         public void sendQuestions(List<Question> question_list)
         {
@@ -45,6 +44,7 @@ namespace QuizDownServer
         {
             ASCIIEncoding asen = new ASCIIEncoding();
             connection.Send(asen.GetBytes(op_score.ToString()));
+            Thread.Sleep(1000);
         }
 
         public void sendCurrentQuestion(int active_question)
@@ -56,12 +56,15 @@ namespace QuizDownServer
 
         private void do_game()
         {
+            Console.WriteLine(status);
             while (status != "end")
             {
                 switch (status)
                 {
                     case "sendQuestions":
+                        Console.WriteLine("Will send questions");
                         sendQuestions(question_list);
+                        Console.WriteLine("Questions sent");
                         status = "wait";
                         break;
                     case "1":
