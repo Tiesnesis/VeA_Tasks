@@ -17,6 +17,7 @@ namespace QuizDown
         static TcpClient client;
         static Stream stream;
         public static int currentQuestion = 0;
+        public static bool gotScore = false;
 
        
 
@@ -60,6 +61,7 @@ namespace QuizDown
 
         public static void sendResult(int result)
         {
+            gotScore = false;
             Console.WriteLine("Will send" + result);
             myScore += result;
             ASCIIEncoding asen = new ASCIIEncoding();
@@ -86,13 +88,13 @@ namespace QuizDown
                 ((MainWindow)System.Windows.Application.Current.MainWindow).myScoreBar.Value = myScore;
             }));
             Console.WriteLine("GotScore" + opScore);
-
+            gotScore = true;
         }
 
         public static void startNextQuestion()
         {
             Console.WriteLine("Will get next round");
-
+            gotScore = false;
             int bufferSize = 16;
             byte[] byteBuffer = new byte[bufferSize];
             int k = stream.Read(byteBuffer, 0, bufferSize);

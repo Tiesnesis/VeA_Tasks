@@ -12,7 +12,7 @@ namespace QuizDown
     public class Game
     {
         List<Question> questions;
-        bool gameOn = false;
+        public bool gameOn = false;
         public List<Round> rounds;
         public System.Timers.Timer timer;
         public double questionTime = 20;
@@ -103,7 +103,6 @@ namespace QuizDown
                         break;
                     case "receiveOponentScore":
                         Network.getOponentScore();
-
                         Player.status = "waitForNextRound";
                         break;
                     default:

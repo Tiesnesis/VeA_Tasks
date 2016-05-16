@@ -120,6 +120,7 @@ namespace QuizDown
 
             if (game.rounds.Count == 0)
             {
+                Player.status = "Wait";
                 endGame();
             }
             disableButtons();
@@ -128,13 +129,28 @@ namespace QuizDown
 
         private void endGame()
         {
+            Player.status = "Wait";
+            game.gameOn = false;
+            gameOn = false;
             questionCountBar.Value = 0;
             ((MainWindow)Application.Current.MainWindow).questionLabel.Content = 0.ToString();
             game.timer.Stop();
             game.timer.Close();
             game.timer.Dispose();
             gameOn = false;
-            MessageBox.Show("Game ended");
+            if (((MainWindow)System.Windows.Application.Current.MainWindow).oponentScoreBar.Value > ((MainWindow)System.Windows.Application.Current.MainWindow).myScoreBar.Value)
+            {
+                MessageBox.Show("You lost");
+            }
+            else if (((MainWindow)System.Windows.Application.Current.MainWindow).oponentScoreBar.Value < ((MainWindow)System.Windows.Application.Current.MainWindow).myScoreBar.Value)
+            {
+                MessageBox.Show("You won");
+            } else
+            {
+                MessageBox.Show("Draw");
+            }
+            Application.Current.Shutdown();
+
         }
 
         public void nextRound()
@@ -154,7 +170,6 @@ namespace QuizDown
             {
                 source.Background = Brushes.Red;
             }
-
             if (gameOn)
             {
                 nextRound();
